@@ -1,12 +1,10 @@
 # TODO APP 
 ## Setup Project
 - Clone this repository
-# clone using ssh
 git clone https://github.com/George0717/web-dev-todoapp
 cd todo-flask
 
 ## Running Project
-
 ##### Without Container
 
 - Create virtual environment
