@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  flask-app:
+    build: .
+    image: thujuli/flask-app:1.0.0
+    container_name: flask-app
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_URL=postgresql://postgres:postgres@flask-psql/psql
+    depends_on:
+      - flask-psql
+
+  flask-psql:
+    image: postgres:14.8
+    container_name: flask-psql
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=psql
+    volumes:
+      - data-psql:/var/lib/postgresql/data
+
+volumes:
+  data-psql:
+    name: data-psql
