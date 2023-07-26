@@ -3,7 +3,7 @@ version: "3.8"
 services:
   flask-app:
     build: .
-    image: thujuli/flask-app:1.0.0
+    image: george/flask-app:1.0.0
     container_name: flask-app
     restart: always
     ports:
